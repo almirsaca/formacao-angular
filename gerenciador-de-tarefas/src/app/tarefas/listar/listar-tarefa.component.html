@@ -6,10 +6,15 @@
     	<th>Tarefa</th>
       <th>Concluída</th>
     	<th class="text-center">
-        <a 
-           class="btn btn-xs btn-success">
-           <span class="glyphicon glyphicon-plus" 
-             aria-hidden="true"></span> Novo
+          <!-- 
+            [routerLink] Define a url de direcionamento.
+            usa-se uma array pois permite mais configurações
+          -->
+          <a 
+          [routerLink]="['/tarefas/cadastrar']"
+          class="btn btn-xs btn-success">
+          <span class="glyphicon glyphicon-plus" 
+          aria-hidden="true"></span> Novo
         </a>
     </th>
     </tr>

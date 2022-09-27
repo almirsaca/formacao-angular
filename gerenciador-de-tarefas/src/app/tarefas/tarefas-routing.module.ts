@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 
 import { ListarTarefaComponent } from './listar';
+import { CadastrarTarefaComponent } from './cadastrar';
 
 export const TarefaRoutes: Routes = [
     /// Atalho para o listar tarefas
@@ -14,5 +15,10 @@ export const TarefaRoutes: Routes = [
 	{ 
 		path: 'tarefas/listar', 
 		component: ListarTarefaComponent 
+	},
+	/// Roteamento para a tela de cadastro de tarefas
+	{
+		path: 'tarefas/cadastrar',
+		component: CadastrarTarefaComponent
 	}
 ];
