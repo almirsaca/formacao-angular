@@ -1,6 +1,10 @@
 <h1>Cadastrar tarefa</h1>
 
 <div class="well">
+  <!--
+    #formTarefa - definido no componente cadastrar-tarefa.component
+    @ViewChild('formTarefa', { static: true }) formTarefa: NgForm;
+  -->
   <form #formTarefa="ngForm">
     <div class="form-group">
       <label for="nome">Tarefa:</label>
@@ -19,7 +23,7 @@
           Digite a tarefa.
         </div>
         <div [hidden]="!nome.errors.minlength">
-          A tarefa deve conter ao menos 5 caracteres.
+          O nome da tarefa deve conter ao menos 5 caracteres.
         </div>
       </div>
     </div>
