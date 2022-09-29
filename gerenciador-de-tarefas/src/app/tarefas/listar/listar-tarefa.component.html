@@ -19,7 +19,12 @@
     </th>
     </tr>
     <tr *ngFor="let tarefa of tarefas">
-      <td 
+        <!--
+          Nossa diretiva criada 
+          [tarefaConcluida]="tarefa.concluida"
+        -->
+        <td 
+        [tarefaConcluida]="tarefa.concluida"
         [class.success]="!tarefa.concluida">
         {{ tarefa.nome }}
       </td>
