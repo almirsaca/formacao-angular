@@ -2,13 +2,18 @@ import { Injectable } from '@angular/core';
 
 import { Moeda } from '../models';
 
+/// ******************************************
+/// Responsável em popular os tipos de moedas
+/// utilizados na conversão das moedas
+/// nesta aplicação
+/// ******************************************
 @Injectable({
   providedIn: 'root'
 })
 export class MoedaService {
 
   private moedas: Moeda[];
-  
+
   constructor() { }
 
   private moedasObj = [ //http://fixer.io
