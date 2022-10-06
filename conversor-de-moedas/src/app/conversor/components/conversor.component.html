@@ -50,6 +50,16 @@
 			data-target="#modalCotacao"
 			(click)="converter()"
 			[disabled]="!conversaoForm.form.valid">
-  </form>
-	 </div>
+      </form>
+	</div>
+	<!-- 
+		(onConfirm) é um EventEmitter comunicacao
+		entre filho e pai
+ 	-->
+	<modal-cotacao 
+		[idCotacao]="'modalCotacao'" 
+		[conversaoResponse]="conversaoResponse" 
+		[conversao]="conversao" 
+		(onConfirm)="init()">
+	</modal-cotacao>
 </div>
