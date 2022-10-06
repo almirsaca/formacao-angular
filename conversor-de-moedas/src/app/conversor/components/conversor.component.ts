@@ -15,6 +15,7 @@ export class ConversorComponent implements OnInit {
   conversao: Conversao;
   possuiErro: boolean;
   conversaoResponse: ConversaoResponse;
+  mensagemErro: string;
 
   @ViewChild("conversaoForm", { static: true }) conversaoForm: NgForm;
 
@@ -44,13 +45,13 @@ export class ConversorComponent implements OnInit {
    */
   converter(): void {
   	if (this.conversaoForm.form.valid) {
-      alert(`Convertendo: ${JSON.stringify(this.conversao)}`);
-      /*this.conversorService
+      this.conversorService
         .converter(this.conversao)
-  	  	.subscribe(
-  		    response => this.conversaoResponse = response,
-          error => this.possuiErro = true
-        );*/
+  	  	.subscribe({
+  		    next: (r) => {this.conversaoResponse = r; console.info(`Response conversorService - ${JSON.stringify(r)}`); },
+          error: (e) => {this.possuiErro = true; console.error(e); },
+          complete: () => console.info('complete conversorService!') 
+        });
   	}
   }
 
