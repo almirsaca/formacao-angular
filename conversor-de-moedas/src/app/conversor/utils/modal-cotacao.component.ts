@@ -25,7 +25,8 @@ export class ModalCotacaoComponent implements OnInit {
 	}
 
 	get valorConvertido(): string {
-	  	if (this.conversaoResponse === undefined) {
+	  	if (this.conversaoResponse === undefined ||
+			this.conversaoResponse.rates === undefined) {
 	  		return '0';
 	  	}
 	  	

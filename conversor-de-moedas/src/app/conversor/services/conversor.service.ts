@@ -36,10 +36,11 @@ export class ConversorService {
    */
   cotacaoPara(conversaoResponse: ConversaoResponse, 
 		conversao: Conversao): number {
-  	if (conversaoResponse === undefined) {
+  	if (conversaoResponse === undefined || 
+      conversaoResponse.rates === undefined) {
   		return 0;
   	}
-
+ 
   	return conversaoResponse.rates[conversao.moedaPara];
   }
 
@@ -52,7 +53,8 @@ export class ConversorService {
    */
   cotacaoDe(conversaoResponse: ConversaoResponse, 
 		conversao: Conversao): string {
-  	if (conversaoResponse === undefined) {
+  	if (conversaoResponse === undefined ||
+      conversaoResponse.rates === undefined) {
   		return '0';
   	}
 
@@ -67,7 +69,8 @@ export class ConversorService {
    * @return string
    */
   dataCotacao(conversaoResponse: ConversaoResponse): string {
-    if (conversaoResponse === undefined) {
+    if (conversaoResponse === undefined ||
+      conversaoResponse.date === undefined) {
       return '';
     }
 
