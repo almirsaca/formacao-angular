@@ -49,7 +49,7 @@ export class ConversorComponent implements OnInit {
         .converter(this.conversao)
   	  	.subscribe({
   		    next: (r) => {this.conversaoResponse = r; console.info(`Response conversorService - ${JSON.stringify(r)}`); },
-          error: (e) => {this.possuiErro = true; console.error(e); },
+          error: (e) => {this.possuiErro = true; this.mensagemErro = e.message ; console.error(e); },
           complete: () => console.info('complete conversorService!') 
         });
   	}
