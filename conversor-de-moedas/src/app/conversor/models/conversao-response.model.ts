@@ -1,16 +1,20 @@
-export class Error {
-	public code: number;
-	public type: string;
-	public info: string;
+export class ConversaoResponseError {
+	
+	constructor(
+		public code?: number,
+		public type?: string,
+		public info?: string
+	) {}
 }
 
 export class ConversaoResponse {
 
-	public success: boolean;
-	public base: string;
-	public date: string;
-	public rates: any;
-	public error: Error;
+	constructor(
+		public success: boolean,
+		public base: string,
+		public date: string,
+		public rates: any,
+		public error: ConversaoResponseError) {}
 }
 
 // Exemplo de resposta
