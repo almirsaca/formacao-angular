@@ -11,6 +11,7 @@ import { ConversorService } from '../services';
 })
 export class ModalCotacaoComponent implements OnInit {
 
+	mensagemErro: string;
 	@Input() idModalCotacao: string;
 	@Input() conversaoResponse: ConversaoResponse;
 	@Input() conversao: Conversao = new Conversao();
@@ -22,6 +23,18 @@ export class ModalCotacaoComponent implements OnInit {
 
 	novaConsulta() {
 		this.onConfirm.emit();
+	}
+
+	get possuiErro(): boolean {
+		this.mensagemErro = "";
+		let erro = false;
+		if(this.conversaoResponse != undefined && (this.conversaoResponse.success === undefined ||
+			!this.conversaoResponse.success))
+			{
+				erro = true;
+				this.mensagemErro = this.conversaoResponse.error.info; 
+			}
+		return erro;
 	}
 
 	get valorConvertido(): string {

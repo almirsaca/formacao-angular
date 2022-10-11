@@ -1,9 +1,16 @@
+export class Error {
+	public code: number;
+	public type: string;
+	public info: string;
+}
+
 export class ConversaoResponse {
 
-	constructor(
-		public base: string,
-		public date: string,
-		public rates: any) {}
+	public success: boolean;
+	public base: string;
+	public date: string;
+	public rates: any;
+	public error: Error;
 }
 
 // Exemplo de resposta
