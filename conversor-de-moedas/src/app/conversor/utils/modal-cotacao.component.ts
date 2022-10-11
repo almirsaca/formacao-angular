@@ -11,7 +11,7 @@ import { ConversorService } from '../services';
 })
 export class ModalCotacaoComponent implements OnInit {
 
-	@Input() idCotacao: string;
+	@Input() idModalCotacao: string;
 	@Input() conversaoResponse: ConversaoResponse;
 	@Input() conversao: Conversao = new Conversao();
 	@Output() onConfirm: EventEmitter<any> = new EventEmitter<any>();
