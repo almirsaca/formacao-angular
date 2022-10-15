@@ -15,6 +15,7 @@ export class ModalCotacaoComponent implements OnInit {
 	@Input() idModalCotacao: string;
 	@Input() conversaoResponse: ConversaoResponse;
 	@Input() conversao: Conversao = new Conversao();
+	@Input() showResult: boolean;
 	@Output() onConfirm: EventEmitter<any> = new EventEmitter<any>();
 
 	constructor(private conversorService: ConversorService) {}
@@ -25,17 +26,24 @@ export class ModalCotacaoComponent implements OnInit {
 		this.onConfirm.emit();
 	}
 
-	get possuiErro(): boolean {
+	get getErro(): boolean {
 		this.mensagemErro = "";
 		let erro = false;
-		if(this.conversaoResponse != undefined && (this.conversaoResponse.success === undefined ||
-			!this.conversaoResponse.success))
-			{
+		if(this.conversaoResponse != undefined && this.conversaoResponse != null) {
+			if((this.conversaoResponse.success === undefined ||	!this.conversaoResponse.success)) {
 				erro = true;
 				this.mensagemErro = this.conversaoResponse.error.info; 
 			}
+			else {
+				this.showResult = true;
+			}
+		}
 		return erro;
 	}
+
+	get getShowResult(): boolean {
+		return this.showResult;
+	}  
 
 	get valorConvertido(): string {
 	  	if (this.conversaoResponse === undefined ||
