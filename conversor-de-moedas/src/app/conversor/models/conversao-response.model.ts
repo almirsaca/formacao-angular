@@ -3,7 +3,8 @@ export class ConversaoResponseError {
 	constructor(
 		public code?: number,
 		public type?: string,
-		public info?: string
+		public info?: string,
+		public message?: string
 	) {}
 }
 

@@ -36,6 +36,7 @@ export class ConversorComponent implements OnInit {
   init(): void {
   	this.conversao = new Conversao('USD', 'BRL' , null);
   	this.possuiErro = false;
+    this.mensagemErro = "";
   }
 
   /**
@@ -45,14 +46,21 @@ export class ConversorComponent implements OnInit {
    */
   converter(): void {
   	if (this.conversaoForm.form.valid) {
+      this.possuiErro = false;
+      this.mensagemErro = "";
       this.conversorService
         .converter(this.conversao)
   	  	.subscribe({
-  		    next: (r) => {this.conversaoResponse = r; console.info(`Response conversorService - ${JSON.stringify(r)}`); },
-          error: (e) => {this.possuiErro = true; this.mensagemErro = e.message ; console.error(e); },
+  		    next: (r) => { 
+            this.conversaoResponse = r; 
+            console.info(`Response conversorService - ${JSON.stringify(r)}`); 
+          },
+          error: (e) => {
+            this.possuiErro = true; 
+            this.mensagemErro = e.message ; console.error(e); 
+          },
           complete: () => console.info('complete conversorService!') 
         });
   	}
   }
-
 }

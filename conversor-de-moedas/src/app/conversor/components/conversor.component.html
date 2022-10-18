@@ -2,8 +2,7 @@
 <div class="alert alert-danger" 
 	role="alert"
 	*ngIf="possuiErro">
-	<!--Erro obtendo dados. Tente novamente.-->
-	{{ mensagemErro }}	
+	{{ mensagemErro }}
 </div>
 <div class="panel panel-success">
 	<div class="panel-heading">
@@ -64,7 +63,6 @@
 		[idModalCotacao]="'modalCotacao'" 
 		[conversaoResponse]="conversaoResponse" 
 		[conversao]="conversao"
-		[showResult]="false" 
 		(onConfirm)="init()">
 	</modal-cotacao>
 </div>

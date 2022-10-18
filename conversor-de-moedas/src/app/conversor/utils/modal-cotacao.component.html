@@ -3,8 +3,9 @@
     [id]="idModalCotacao"
 	tabindex="-1" 
 	role="dialog" 
-	aria-labelledby="modalLabel">
-	<div class="modal-dialog" role="document" *ngIf="getErro">
+	aria-labelledby="modalLabel"
+	*ngIf="getErro || showResult">
+	<div class="modal-dialog" role="document" *ngIf="getErro"> 
 		<div class="modal-content">
 			<div class="modal-header">
 				<button 
@@ -25,7 +26,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="modal-dialog" role="document" *ngIf="getShowResult">
+	<div class="modal-dialog" role="document" *ngIf="showResult">
 		<div class="modal-content">
 			<div class="modal-header">
 				<button 

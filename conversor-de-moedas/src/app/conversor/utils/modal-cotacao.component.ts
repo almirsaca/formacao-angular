@@ -12,10 +12,10 @@ import { ConversorService } from '../services';
 export class ModalCotacaoComponent implements OnInit {
 
 	mensagemErro: string;
+	showResult: boolean;
 	@Input() idModalCotacao: string;
 	@Input() conversaoResponse: ConversaoResponse;
 	@Input() conversao: Conversao = new Conversao();
-	@Input() showResult: boolean;
 	@Output() onConfirm: EventEmitter<any> = new EventEmitter<any>();
 
 	constructor(private conversorService: ConversorService) {}
@@ -32,7 +32,7 @@ export class ModalCotacaoComponent implements OnInit {
 		if(this.conversaoResponse != undefined && this.conversaoResponse != null) {
 			if((this.conversaoResponse.success === undefined ||	!this.conversaoResponse.success)) {
 				erro = true;
-				this.mensagemErro = this.conversaoResponse.error.info; 
+				this.mensagemErro = this.conversaoResponse.error.info ?? this.conversaoResponse.error.message; 
 			}
 			else {
 				this.showResult = true;
@@ -40,10 +40,6 @@ export class ModalCotacaoComponent implements OnInit {
 		}
 		return erro;
 	}
-
-	get getShowResult(): boolean {
-		return this.showResult;
-	}  
 
 	get valorConvertido(): string {
 	  	if (this.conversaoResponse === undefined ||
