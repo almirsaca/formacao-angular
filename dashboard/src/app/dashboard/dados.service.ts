@@ -19,8 +19,8 @@ export class DadosService {
 	 * Retorna um observable contendo os dados a serem
 	 * exibidos no gráfico.
 	 *
-   * https://developers.google.com/chart
-   * 
+   	 * https://developers.google.com/chart
+     * 
 	 * @return Observable<any>
 	 */
 	obterDados(): Observable<any> {
