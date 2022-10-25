@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardRoutes } from './dashboard';
+import { CalculadoraRoutes } from './calculadora';
+import { ConversorRoutes } from './conversor';
+import { TarefaRoutes } from './tarefas';
 
 const routes: Routes = [
   {
@@ -8,7 +11,10 @@ const routes: Routes = [
     redirectTo: '/dashboard',
     pathMatch: 'full'
   },
-  ...DashboardRoutes
+  ...DashboardRoutes,
+  ...CalculadoraRoutes,
+  ...ConversorRoutes,
+  ...TarefaRoutes
 ];
 
 @NgModule({
