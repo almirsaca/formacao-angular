@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
+    // Esse deve ser declado sempre
+    // após as rotas filhas!!!!!
     AppRoutingModule
   ],
   providers: [],
